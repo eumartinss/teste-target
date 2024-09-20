@@ -34,9 +34,11 @@ const faturamento = [
 const faturamentoOk = faturamento.filter(dia => dia.valor > 0) // Dias do mês em que houve faturamento
 const valores = faturamentoOk.map(dia => dia.valor) // Somente os valores da lista
 const menorFaturamento = Math.min(...valores) // Valor do menor faturamento do mês
+const menorFaturamentoFormatado = menorFaturamento.toFixed(2)
 const maiorFaturamento = Math.max(...valores) // Valor do maior faturamento do mês
+const maiorFaturamentoFormatado = maiorFaturamento.toFixed(2)
 const somaFaturamento = faturamento.reduce((acumulador, item) => acumulador + item.valor, 0) // Soma total de faturamento
 const mediaMensal = somaFaturamento / faturamentoOk.length // Soma dos valores totais divido pelos dias que houve faturamento
 const diarioSuperior = faturamentoOk.filter(dia => dia.valor > mediaMensal).length // Quantidade de dias em que o faturamento foi maior que a média mensal
 
-console.log('O menor valor de faturamento ocorrido em um dia do mês foi de '+ menorFaturamento + ', e o maior valorm foi de ' + maiorFaturamento +'. O número de dias no mês em que o valor de faturamento diário foi superior à média mensal foi de ' + diarioSuperior + ' dias.')
+console.log('O menor valor de faturamento ocorrido em um dia do mês foi de '+ menorFaturamentoFormatado + ', e o maior valorm foi de ' + maiorFaturamentoFormatado +'. O número de dias no mês em que o valor de faturamento diário foi superior à média mensal foi de ' + diarioSuperior + ' dias.')
